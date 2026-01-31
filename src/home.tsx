@@ -20,8 +20,11 @@ function Home() {
   return (
     <DotBackground>
       <div className='relative z-10 h-screen flex justify-center items-center gap-[20px]'>
-        {!loading ? <Profile username={status.discord_user.username}
-          displayName={status?.discord_user.display_name} id={status?.discord_user.id}
+        {!loading ? <Profile 
+        ws = {status}
+        username={status.discord_user.username}
+          displayName={status?.discord_user.display_name} 
+          id={status?.discord_user.id}
           avatar={status?.discord_user.avatar}
           banner={data?.user.banner}
           tag={status?.discord_user.primary_guild.tag}
@@ -29,9 +32,9 @@ function Home() {
           clanID={status?.discord_user.primary_guild.identity_guild_id}
           icons={data?.badges}
           status={status?.discord_status}
-        /> : 'loading...'}
+          activities={status?.activities}
+        />: 'loading...'}
       </div>
-      
     </DotBackground >
 
 
